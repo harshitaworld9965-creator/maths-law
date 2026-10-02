@@ -1,0 +1,86 @@
+/* ---------- Design tokens ---------- */
+:root {
+  /* Chapter I — graph paper */
+  --graph: #edf1f6;
+  --grid: #d3dcea;
+  --navy: #1b2b4a;
+  --red-pen: #c8312f;
+
+  /* Chapter II — law report */
+  --brief: #e7eae1;
+  --brief-ink: #1f2a22;
+  --maroon: #7a1e2c;
+
+  /* Chapter III — interface */
+  --ui-bg: #dde3ff;
+  --ui-surface: #ffffff;
+  --ui-ink: #151a3a;
+  --ui-accent: #3346ff;
+  --ui-line: #c3cbf2;
+
+  --f-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --f-math: "STIX Two Text", "Times New Roman", serif;
+  --f-law: "EB Garamond", Georgia, serif;
+
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+  --measure: 34rem;
+
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+
+/* ---------- Reset ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--f-display);
+  background: var(--graph);
+  color: var(--navy);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: inherit; }
+svg { display: block; max-width: 100%; }
+
+:focus-visible {
+  outline: 2px solid var(--ui-accent);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* ---------- Shared pieces ---------- */
+.graph-paper {
+  background-color: var(--graph);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.chapter-head {
+  padding: clamp(5rem, 14vh, 9rem) var(--gutter) clamp(2rem, 6vh, 4rem);
+}
+
+.chapter-head__num {
+  font-family: var(--f-display);
+  font-size: 1rem;
+  font-weight: 500;
+  opacity: 0.7;
+  margin-bottom: 0.5rem;
+}
+
+.prose p {
+  max-width: var(--measure);
+  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+}
+
+.prose p + p { margin-top: 1em; }

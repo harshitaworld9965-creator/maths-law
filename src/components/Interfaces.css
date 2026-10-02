@@ -1,0 +1,90 @@
+.ui {
+  background: var(--ui-bg);
+  color: var(--ui-ink);
+  padding-bottom: clamp(5rem, 14vh, 9rem);
+  overflow: hidden; /* scattered cards must not cause sideways scrolling */
+}
+
+.ui__title {
+  font-family: var(--f-display);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  font-size: clamp(3.5rem, 12vw, 11rem);
+  line-height: 0.95;
+  color: var(--ui-accent);
+}
+
+.ui__intro { padding: 0 var(--gutter); }
+
+.ui-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  padding: clamp(3rem, 8vh, 5rem) var(--gutter) 0;
+}
+
+/* Each project is drawn as a small app window. */
+.ui-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--ui-surface);
+  border: 1.5px solid var(--ui-ink);
+  border-radius: 14px;
+  box-shadow: 6px 6px 0 var(--ui-ink);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ui-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0 var(--ui-ink);
+}
+
+.ui-card__bar {
+  padding: 0.55rem 0.9rem;
+  border-bottom: 1.5px solid var(--ui-ink);
+  background: var(--ui-bg);
+}
+
+.ui-card__url {
+  display: block;
+  font-size: 0.85rem;
+  padding: 0.2rem 0.7rem;
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-line);
+  border-radius: 999px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ui-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+  padding: 1.25rem 1.1rem 1.1rem;
+}
+
+.ui-card__name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.ui-card__about { font-size: 1rem; opacity: 0.8; }
+
+.ui-card__link {
+  margin-top: auto;
+  padding-top: 1rem;
+  align-self: flex-start;
+  font-weight: 600;
+  color: var(--ui-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 1.5px;
+}
+
+.ui-card__link:hover { text-decoration-thickness: 3px; }
